@@ -20,7 +20,7 @@ public:
 	Pacman();
 	void keyboard();
 	sf::CircleShape getSprite();
-	void draw(sf::RenderWindow& );
+	void draw(sf::RenderWindow&);
 };
 
 #endif
