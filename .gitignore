@@ -1,0 +1,10 @@
+[Dd]ebug
+
+*.vcxproj
+*.filters
+*.user
+*.sln
+
+.vs/
+
+[Rr]elease
