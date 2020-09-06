@@ -6,50 +6,59 @@
 Pacman::Pacman() {
 	direction = STAY;
 	shape.setFillColor(sf::Color(255, 216, 0));
-	shape.setRadius(5.f);
-	shape.setPosition(400, 400);
+	shape.setRadius(14.f);
+	shape.setPosition(740, 640);
     speed = 0.15;
 }
 
-void Pacman::keyboard(Map& _map)
+void Pacman::keyboard()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-        if (!checkWallIntersects(_map, UP)) {
-            direction = UP;
-        }
-        else {
-            direction = STAY;
-            shape.move(0, speed);
-        }
+        direction = UP;
     } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-        if (!checkWallIntersects(_map, DOWN)) {
-            direction = DOWN;
-        }
-        else {
-            direction = STAY;
-            shape.move(0, -speed);
-        }
+        direction = DOWN;
     } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        if (!checkWallIntersects(_map, LEFT)) {
-            direction = LEFT;
-        }
-        else {
-            direction = STAY;
-            shape.move(speed, 0);
-        }
+        direction = LEFT;
     } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        if (!checkWallIntersects(_map, RIGHT)) {
-            direction = RIGHT;
-        }
-        else {
-            direction = STAY;
-            shape.move(-speed, 0);
-        }
+        direction = RIGHT;
     }
 }
 
 void Pacman::draw(sf::RenderWindow& window) {
 	window.draw(shape);
+}
+
+void Pacman::move(Map& _map) {
+    switch (direction) {
+        case UP: {
+            if (checkWallIntersects(_map, UP)) {
+                direction = STAY;
+                shape.move(0, speed);
+            }
+            break;
+        }
+        case DOWN: {
+            if (checkWallIntersects(_map, DOWN)){
+                direction = STAY;
+                shape.move(0, -speed);
+            }
+            break;
+        }
+        case LEFT: {
+            if (checkWallIntersects(_map, LEFT)) {
+                direction = STAY;
+                shape.move(speed, 0);
+            }
+            break;
+        }
+        case RIGHT: {
+            if (checkWallIntersects(_map, RIGHT)) {
+                direction = STAY;
+                shape.move(-speed, 0);
+            }
+            break;
+        }
+    }
 }
 
 bool Pacman::checkWallIntersects(Map& _map, PacmanDirection _direction) {

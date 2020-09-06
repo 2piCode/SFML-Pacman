@@ -21,8 +21,9 @@ class Pacman {
 	float speed;
 public:
 	Pacman();
-	void keyboard(Map&);
+	void keyboard();
 	void draw(sf::RenderWindow&);
+	void move(Map&);
 	bool checkWallIntersects(Map&, PacmanDirection);
 };
 

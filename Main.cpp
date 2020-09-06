@@ -4,7 +4,7 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(680, 420), "SFML Works!");
+	sf::RenderWindow window(sf::VideoMode(800, 700), "SFML Works!");
 
 	Pacman pacman;
 	Map map;
@@ -19,7 +19,9 @@ int main()
 		}
 
 		map.setMap();
-		pacman.keyboard(map);
+		pacman.keyboard();
+
+		pacman.move(map);
 
 		window.clear(sf::Color::Black);
 
