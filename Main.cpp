@@ -19,12 +19,13 @@ int main()
 		}
 
 		map.setMap();
-		pacman.keyboard();
+		pacman.keyboard(map);
 
 		window.clear(sf::Color::Black);
 
-		pacman.draw(window);
 		map.draw(window);
+		pacman.draw(window);
+		
 		window.display();
 	}
 

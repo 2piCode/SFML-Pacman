@@ -28,6 +28,10 @@ void Cell::setCell(CellCategory _category, int x, int y) {
 	
 }
 
+CellCategory Cell::getCategory() {
+	return category;
+}
+
 Map::Map() {
 	cells = new Cell * [size_map_y];
 	for (size_t i = 0; i < size_map_y; i++) {
@@ -91,4 +95,9 @@ void Map::draw(sf::RenderWindow& window) {
 			window.draw(cells[i][j].getShape());
 		}
 	}
+}
+
+Cell** Map::getPointer()
+{
+	return cells;
 }

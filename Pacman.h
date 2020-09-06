@@ -3,6 +3,9 @@
 #define _PACMAN_H_
 
 #include <SFML/Graphics.hpp>
+#include "Map.h"
+
+class Map;
 
 enum PacmanDirection {
 	STAY,
@@ -15,12 +18,12 @@ enum PacmanDirection {
 class Pacman {
 	PacmanDirection direction;
 	sf::CircleShape shape;
-	int speed;
+	float speed;
 public:
 	Pacman();
-	void keyboard();
-	sf::CircleShape getSprite();
+	void keyboard(Map&);
 	void draw(sf::RenderWindow&);
+	bool checkWallIntersects(Map&, PacmanDirection);
 };
 
 #endif

@@ -17,6 +17,7 @@ public:
 	Cell();
 	sf::RectangleShape getShape();
 	void setCell(CellCategory, int, int);
+	CellCategory getCategory();
 };
 
 class Map {
@@ -26,6 +27,7 @@ public:
 	~Map();
 	void setMap();
 	void draw(sf::RenderWindow&);
+	Cell** getPointer();
 };
 
 #endif
