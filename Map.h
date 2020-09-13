@@ -15,9 +15,12 @@ class Cell {
 	sf::RectangleShape shape;
 public:
 	Cell();
-	sf::RectangleShape getShape();
+
 	void setCell(CellCategory, int, int);
+	void setCategory(CellCategory);
+
 	CellCategory getCategory();
+	sf::RectangleShape getShape();
 };
 
 class Map {
@@ -25,8 +28,11 @@ class Map {
 public:
 	Map();
 	~Map();
+
 	void setMap();
+
 	void draw(sf::RenderWindow&);
+
 	Cell** getPointer();
 };
 

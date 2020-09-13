@@ -20,7 +20,6 @@ void Cell::setCell(CellCategory _category, int x, int y) {
 	}
 	if (category == COIN) {
 		shape.setFillColor(sf::Color(255, 255, 255));
-		
 		shape.setSize(sf::Vector2f(3.f, 3.f));
 		shape.setPosition(x * (BLOCK_SIZE + 1.25), y * (BLOCK_SIZE + 1.f));
 		return;
@@ -31,6 +30,10 @@ void Cell::setCell(CellCategory _category, int x, int y) {
 	}
 	shape.setPosition(x * BLOCK_SIZE, y *BLOCK_SIZE);
 	
+}
+
+void Cell::setCategory(CellCategory _category) {
+	category = _category;
 }
 
 CellCategory Cell::getCategory() {

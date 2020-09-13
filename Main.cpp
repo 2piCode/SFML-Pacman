@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "Pacman.h"
 #include "Map.h"
+#include "Monster.h"
 
 int main()
 {
@@ -8,6 +9,9 @@ int main()
 
 	Pacman pacman;
 	Map map;
+	Monster monster;
+
+	map.setMap();
 
 	while (window.isOpen())
 	{
@@ -18,7 +22,6 @@ int main()
 				window.close();
 		}
 
-		map.setMap();
 		pacman.keyboard();
 
 		pacman.move(map);
@@ -27,7 +30,8 @@ int main()
 
 		map.draw(window);
 		pacman.draw(window);
-		
+		monster.draw(window);
+
 		window.display();
 	}
 

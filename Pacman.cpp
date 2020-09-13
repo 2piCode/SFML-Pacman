@@ -29,6 +29,7 @@ void Pacman::draw(sf::RenderWindow& window) {
 }
 
 void Pacman::move(Map& _map) {
+    checkCoinIntersects(_map);
     switch (direction) {
         case UP: {
             if (checkWallIntersects(_map, UP)) {
@@ -79,4 +80,18 @@ bool Pacman::checkWallIntersects(Map& _map, PacmanDirection _direction) {
         }
     }
     return false;
+}
+
+void Pacman::checkCoinIntersects(Map& _map) {
+    for (size_t i = 0; i < size_map_y; i++) {
+        for (size_t j = 0; j < size_map_x; j++) {
+            if (shape.getGlobalBounds().intersects(_map.getPointer()[i][j].getShape().getGlobalBounds())) {
+                if (_map.getPointer()[i][j].getCategory() == COIN) {
+                    _map.getPointer()[i][j].getShape().setFillColor(sf::Color::Black);
+                    _map.getPointer()[i][j].setCategory(CellCategory::EMPTY);
+                    return;
+                }
+            }
+        }
+    }
 }
