@@ -16,7 +16,7 @@ class Cell {
 public:
 	Cell();
 
-	void setCell(CellCategory, int, int);
+	void setCell(int, int);
 	void setCategory(CellCategory);
 
 	CellCategory getCategory();

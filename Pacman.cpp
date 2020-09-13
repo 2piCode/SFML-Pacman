@@ -32,6 +32,7 @@ void Pacman::move(Map& _map) {
     checkCoinIntersects(_map);
     switch (direction) {
         case UP: {
+            checkCoinIntersects(_map);
             if (checkWallIntersects(_map, UP)) {
                 direction = STAY;
                 shape.move(0, speed);
@@ -39,6 +40,7 @@ void Pacman::move(Map& _map) {
             break;
         }
         case DOWN: {
+            checkCoinIntersects(_map);
             if (checkWallIntersects(_map, DOWN)){
                 direction = STAY;
                 shape.move(0, -speed);
@@ -46,6 +48,7 @@ void Pacman::move(Map& _map) {
             break;
         }
         case LEFT: {
+            checkCoinIntersects(_map);
             if (checkWallIntersects(_map, LEFT)) {
                 direction = STAY;
                 shape.move(speed, 0);
@@ -53,6 +56,7 @@ void Pacman::move(Map& _map) {
             break;
         }
         case RIGHT: {
+            checkCoinIntersects(_map);
             if (checkWallIntersects(_map, RIGHT)) {
                 direction = STAY;
                 shape.move(-speed, 0);
@@ -87,8 +91,8 @@ void Pacman::checkCoinIntersects(Map& _map) {
         for (size_t j = 0; j < size_map_x; j++) {
             if (shape.getGlobalBounds().intersects(_map.getPointer()[i][j].getShape().getGlobalBounds())) {
                 if (_map.getPointer()[i][j].getCategory() == COIN) {
-                    _map.getPointer()[i][j].getShape().setFillColor(sf::Color::Black);
                     _map.getPointer()[i][j].setCategory(CellCategory::EMPTY);
+                    _map.getPointer()[i][j].setCell(j, i);
                     return;
                 }
             }

@@ -9,7 +9,24 @@ Monster::Monster() {
 }
 
 void Monster::move() {
+	switch (direction) {
+	case UP: {
 
+		break;
+	}
+	case DOWN: {
+
+		break;
+	}
+	case LEFT: {
+
+		break;
+	}
+	case RIGHT: {
+
+		break;
+	}
+	}
 }
 
 void Monster::draw(sf::RenderWindow& window) {

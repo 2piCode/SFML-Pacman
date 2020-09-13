@@ -13,8 +13,7 @@ sf::RectangleShape Cell::getShape()
 	return shape;
 }
 
-void Cell::setCell(CellCategory _category, int x, int y) {
-	category = _category;
+void Cell::setCell(int x, int y) {
 	if (category == WALL) {
 		shape.setFillColor(sf::Color(52, 93, 199));
 	}
@@ -26,10 +25,8 @@ void Cell::setCell(CellCategory _category, int x, int y) {
 	}
 	if (category == EMPTY) {
 		shape.setFillColor(sf::Color::Black);
-		
 	}
 	shape.setPosition(x * BLOCK_SIZE, y *BLOCK_SIZE);
-	
 }
 
 void Cell::setCategory(CellCategory _category) {
@@ -92,7 +89,8 @@ void Map::setMap()
 			if (map[i][j] == ' ') {
 				_category = EMPTY;
 			}
-			cells[i][j].setCell(_category, j, i);
+			cells[i][j].setCategory(_category);
+			cells[i][j].setCell(j, i);
 		}
 	}
 }
