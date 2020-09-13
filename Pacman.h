@@ -22,7 +22,7 @@ public:
 	void draw(sf::RenderWindow&);
 	void move(Map&);
 
-	bool checkWallIntersects(Map&, Direction);
+	bool checkWallIntersects(Map&);
 	void checkCoinIntersects(Map&);
 };
 

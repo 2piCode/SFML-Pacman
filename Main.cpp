@@ -23,8 +23,9 @@ int main()
 		}
 
 		pacman.keyboard();
-
 		pacman.move(map);
+
+		monster.move(map);
 
 		window.clear(sf::Color::Black);
 

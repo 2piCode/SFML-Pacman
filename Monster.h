@@ -3,18 +3,23 @@
 #define _MONSTER_H_
 
 #include <SFML/Graphics.hpp>
+#include "Map.h"
 #include "Direction.h"
 
 enum Direction;
+
+class Map;
 
 class Monster {
 	Direction direction;
 	sf::Texture texture;
 	sf::Sprite shape;
+	float speed;
 public:
 	Monster();
-	void move();
+	void move(Map&);
 	void draw(sf::RenderWindow&);
+	bool checkWallIntersects(Map&);
 };
 
 #endif

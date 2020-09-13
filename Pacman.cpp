@@ -32,32 +32,36 @@ void Pacman::move(Map& _map) {
     checkCoinIntersects(_map);
     switch (direction) {
         case UP: {
+            shape.move(0, -speed);
             checkCoinIntersects(_map);
-            if (checkWallIntersects(_map, UP)) {
+            if (checkWallIntersects(_map)) {
                 direction = STAY;
                 shape.move(0, speed);
             }
             break;
         }
         case DOWN: {
+            shape.move(0, speed);
             checkCoinIntersects(_map);
-            if (checkWallIntersects(_map, DOWN)){
+            if (checkWallIntersects(_map)){
                 direction = STAY;
                 shape.move(0, -speed);
             }
             break;
         }
         case LEFT: {
+            shape.move(-speed, 0);
             checkCoinIntersects(_map);
-            if (checkWallIntersects(_map, LEFT)) {
+            if (checkWallIntersects(_map)) {
                 direction = STAY;
                 shape.move(speed, 0);
             }
             break;
         }
         case RIGHT: {
+            shape.move(speed, 0);
             checkCoinIntersects(_map);
-            if (checkWallIntersects(_map, RIGHT)) {
+            if (checkWallIntersects(_map)) {
                 direction = STAY;
                 shape.move(-speed, 0);
             }
@@ -66,16 +70,7 @@ void Pacman::move(Map& _map) {
     }
 }
 
-bool Pacman::checkWallIntersects(Map& _map, Direction _direction) {
-    if (_direction == UP) {
-        shape.move(0, -speed);
-    } else if (_direction == DOWN) {
-        shape.move(0, speed);
-    } else if (_direction == LEFT) {
-        shape.move(-speed, 0);
-    } else if (_direction == RIGHT) {
-        shape.move(speed, 0);
-    }
+bool Pacman::checkWallIntersects(Map& _map) {
     for (size_t i = 0; i < size_map_y; i++) {
         for (size_t j = 0;  j < size_map_x;  j++) {
             if (shape.getGlobalBounds().intersects(_map.getPointer()[i][j].getShape().getGlobalBounds())) {
