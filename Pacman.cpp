@@ -62,7 +62,7 @@ void Pacman::move(Map& _map) {
     }
 }
 
-bool Pacman::checkWallIntersects(Map& _map, PacmanDirection _direction) {
+bool Pacman::checkWallIntersects(Map& _map, Direction _direction) {
     if (_direction == UP) {
         shape.move(0, -speed);
     } else if (_direction == DOWN) {

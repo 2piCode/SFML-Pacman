@@ -5,6 +5,11 @@ Monster::Monster() {
 	shape.setTexture(texture);
 	shape.setTextureRect(sf::IntRect(30,2,32,28));
 	shape.setPosition(380, 322);
+	direction = STAY;
+}
+
+void Monster::move() {
+
 }
 
 void Monster::draw(sf::RenderWindow& window) {

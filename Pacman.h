@@ -5,21 +5,14 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Map.h"
+#include "Direction.h"
 
 class Map;
 
-enum CellCategory;
-
-enum PacmanDirection {
-	STAY,
-	LEFT,
-	RIGHT,
-	UP,
-	DOWN
-};
+enum Direction;
 
 class Pacman {
-	PacmanDirection direction;
+	Direction direction;
 	sf::CircleShape shape;
 	float speed;
 public:
@@ -29,7 +22,7 @@ public:
 	void draw(sf::RenderWindow&);
 	void move(Map&);
 
-	bool checkWallIntersects(Map&, PacmanDirection);
+	bool checkWallIntersects(Map&, Direction);
 	void checkCoinIntersects(Map&);
 };
 
