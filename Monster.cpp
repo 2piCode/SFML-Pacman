@@ -8,7 +8,7 @@ Monster::Monster() {
 	shape.setTexture(texture);
 	shape.setTextureRect(sf::IntRect(30,2,32,28));
 	shape.setPosition(380, 322);
-	direction = RIGHT;
+	direction = STAY;
 	speed = 0.15;
 }
 
@@ -46,6 +46,13 @@ void Monster::move(Map& _map) {
 		}
 		break;
 	}
+	case STAY: {
+		int choise = rand() % 4 + 1; 
+		if (choise == 1) direction = RIGHT;
+		else if (choise == 2) direction = LEFT;
+		else if (choise == 3) direction = UP;
+		else if (choise == 4) direction = DOWN;
+	}
 	}
 }
 
@@ -60,8 +67,15 @@ bool Monster::checkWallIntersects(Map& _map)
 			if (shape.getGlobalBounds().intersects(_map.getPointer()[i][j].getShape().getGlobalBounds())) {
 				if (_map.getPointer()[i][j].getCategory() == WALL) return true;
 			}
-		}
+		}	
 	}
 	return false;
+}
+
+void Monster::release(sf::Clock& clock) {
+	if (clock.getElapsedTime().asSeconds() > 5.00 and clock.getElapsedTime().asSeconds() < 5.50) {
+		shape.setPosition(380, 257);
+		direction = RIGHT;
+	}
 }
 	

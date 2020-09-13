@@ -6,6 +6,7 @@
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 700), "SFML Works!");
+	sf::Clock clock;
 
 	Pacman pacman;
 	Map map;
@@ -26,6 +27,7 @@ int main()
 		pacman.move(map);
 
 		monster.move(map);
+		monster.release(clock);
 
 		window.clear(sf::Color::Black);
 
