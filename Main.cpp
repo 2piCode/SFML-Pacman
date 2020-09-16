@@ -2,17 +2,15 @@
 #include "Pacman.h"
 #include "Map.h"
 #include "Monster.h"
+#include "GameClass.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 700), "SFML Works!");
+	sf::RenderWindow window(sf::VideoMode(800, 700), "PACMAN GAME");
 	sf::Clock clock;
 
-	Pacman pacman;
-	Map map;
-	Monster monster;
+	GameClass game;
 
-	map.setMap();
 
 	while (window.isOpen())
 	{
@@ -23,17 +21,11 @@ int main()
 				window.close();
 		}
 
-		pacman.keyboard();
-		pacman.move(map);
-
-		monster.move(map);
-		monster.release(clock);
+		if (!game.gameplayed(clock)) break;
 
 		window.clear(sf::Color::Black);
 
-		map.draw(window);
-		pacman.draw(window);
-		monster.draw(window);
+		game.draw(window);	
 
 		window.display();
 	}

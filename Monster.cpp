@@ -32,36 +32,35 @@ void Monster::move(Map& _map) {
 	}
 	case LEFT: {
 		shape.move(-speed, 0);
-		if (checkWallIntersects(_map)) {
-			direction = STAY;
+			if (checkWallIntersects(_map)) {
+				direction = STAY;
+				shape.move(speed, 0);
+			}
+			break;
+		}
+		case RIGHT: {
 			shape.move(speed, 0);
+			if (checkWallIntersects(_map)) {
+				direction = STAY;
+				shape.move(-speed, 0);
+			}
+			break;
 		}
-		break;
-	}
-	case RIGHT: {
-		shape.move(speed, 0);
-		if (checkWallIntersects(_map)) {
-			direction = STAY;
-			shape.move(-speed, 0);
+		case STAY: {
+			int choise = rand() % 4 + 1; 
+			if (choise == 1) direction = RIGHT;
+			else if (choise == 2) direction = LEFT;
+			else if (choise == 3) direction = UP;
+			else if (choise == 4) direction = DOWN;
 		}
-		break;
+		}
 	}
-	case STAY: {
-		int choise = rand() % 4 + 1; 
-		if (choise == 1) direction = RIGHT;
-		else if (choise == 2) direction = LEFT;
-		else if (choise == 3) direction = UP;
-		else if (choise == 4) direction = DOWN;
-	}
-	}
-}
 
 void Monster::draw(sf::RenderWindow& window) {
 	window.draw(shape);
 }
 
-bool Monster::checkWallIntersects(Map& _map)
-{
+bool Monster::checkWallIntersects(Map& _map) {
 	for (size_t i = 0; i < size_map_y; i++) {
 		for (size_t j = 0; j < size_map_x; j++) {
 			if (shape.getGlobalBounds().intersects(_map.getPointer()[i][j].getShape().getGlobalBounds())) {
@@ -78,4 +77,3 @@ void Monster::release(sf::Clock& clock) {
 		direction = RIGHT;
 	}
 }
-	

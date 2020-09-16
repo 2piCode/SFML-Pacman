@@ -23,7 +23,7 @@ public:
 	void move(Map&);
 
 	bool checkWallIntersects(Map&);
-	void checkCoinIntersects(Map&);
+	void coinIntersects(Map&);
 };
 
 #endif

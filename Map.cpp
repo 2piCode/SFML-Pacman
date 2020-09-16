@@ -103,6 +103,16 @@ void Map::draw(sf::RenderWindow& window) {
 	}
 }
 
+bool Map::winCoin()
+{
+	for (size_t i = 0; i < size_map_y; i++) {
+		for (size_t j = 0; j < size_map_x; j++) {
+			if (cells[i][j].getCategory() == COIN) return false;
+		}
+	}
+	return true;
+}
+
 Cell** Map::getPointer()
 {
 	return cells;

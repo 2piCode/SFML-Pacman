@@ -22,6 +22,6 @@ public:
 	void draw(sf::RenderWindow&);
 	bool checkWallIntersects(Map&);
 	void release(sf::Clock&);
-};
+};	
 
 #endif
