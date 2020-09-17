@@ -12,6 +12,7 @@ enum Direction;
 class Map;
 
 class Monster {
+protected:
 	Direction direction;
 	sf::Texture texture;
 	sf::Sprite shape;
@@ -23,5 +24,20 @@ public:
 	bool checkWallIntersects(Map&);
 	void release(sf::Clock&);
 };	
+
+class Pink : public Monster {
+public:
+	Pink();
+};
+
+class Red : public Monster {
+public:
+	Red();
+};
+
+class Blue : public Monster {
+public:
+	Blue();
+};
 
 #endif

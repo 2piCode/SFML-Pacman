@@ -20,7 +20,9 @@ enum GameState {
 
 class GameClass {
 	Map map;
-	Monster monster;
+	Blue blue;
+	Red red;
+	Pink pink;
 	Pacman pacman;
 	GameState state;
 public:
