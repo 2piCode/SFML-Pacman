@@ -1,8 +1,4 @@
-#include <SFML/Graphics.hpp>
-#include "Pacman.h"
-#include "Map.h"
-#include "Monster.h"
-#include "GameClass.h"
+#include "stdafx.h"
 
 int main()
 {
@@ -10,7 +6,6 @@ int main()
 	sf::Clock clock;
 
 	GameClass game;
-
 
 	while (window.isOpen())
 	{

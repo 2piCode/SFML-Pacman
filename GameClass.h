@@ -2,10 +2,6 @@
 #ifndef _GAMECLASS_H_
 #define _GAMECLASS_H_
 
-#include "Map.h"
-#include "Monster.h"
-#include "Pacman.h"
-
 class Map;
 
 class Monster;

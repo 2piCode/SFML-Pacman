@@ -2,11 +2,6 @@
 #ifndef _MONSTER_H_
 #define _MONSTER_H_
 
-#include <SFML/Graphics.hpp>
-#include <time.h>
-#include "Map.h"
-#include "Direction.h"
-
 enum Direction;
 
 class Map;

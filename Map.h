@@ -2,8 +2,6 @@
 #ifndef _MAP_H_
 #define _MAP_H_
 
-#include <SFML/Graphics.hpp>
-
 enum CellCategory {
 	COIN,
 	EMPTY,

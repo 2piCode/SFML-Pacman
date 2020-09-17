@@ -2,11 +2,6 @@
 #ifndef _PACMAN_H_
 #define _PACMAN_H_
 
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include "Map.h"
-#include "Direction.h"
-
 class Map;
 
 enum Direction;

@@ -1,4 +1,4 @@
-#include "Pacman.h"
+#include "stdafx.h"
 
 #define size_map_y 22
 #define size_map_x 26

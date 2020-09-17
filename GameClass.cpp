@@ -1,4 +1,4 @@
-#include "GameClass.h"
+#include "stdafx.h"
 
 GameClass::GameClass() {
 	state = PLAYING;

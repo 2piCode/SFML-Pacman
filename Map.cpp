@@ -1,4 +1,4 @@
-#include "Map.h"
+#include "stdafx.h"
 
 #define BLOCK_SIZE 32.f
 #define size_map_y 22
