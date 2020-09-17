@@ -3,7 +3,7 @@
 Monster::Monster() {
 	direction = SPAWN;
 	speed = 0.15;
-	shape.setSize(sf::Vector2f(32.f, 32.f));
+	shape.setSize(sf::Vector2f(31.f, 31.f));
 }
 
 void Monster::move(Map& _map) {
