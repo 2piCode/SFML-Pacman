@@ -6,7 +6,7 @@
 Pacman::Pacman() {
 	direction = STAY;
 	shape.setFillColor(sf::Color(255, 216, 0));
-	shape.setRadius(14.f);
+	shape.setRadius(15.f);
 	shape.setPosition(740, 640);
     speed = 0.15;
 }

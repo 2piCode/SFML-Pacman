@@ -26,8 +26,7 @@ bool GameClass::gameplayed(sf::Clock& _clock) {
 	if (loseByMonster()) return false;
 	return true;
 }
-bool GameClass::loseByMonster()
-{
+bool GameClass::loseByMonster()  {
 	if (blue.checkPacmanIntersects(pacman) or red.checkPacmanIntersects(pacman) or pink.checkPacmanIntersects(pacman)) return true;
 	return false;
 }
