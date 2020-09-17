@@ -2,7 +2,7 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 700), "PACMAN GAME");
+	sf::RenderWindow window(sf::VideoMode(800, 800), "PACMAN GAME");
 	sf::Clock clock;
 
 	GameClass game;

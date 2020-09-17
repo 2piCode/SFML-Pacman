@@ -1,13 +1,9 @@
 #include "stdafx.h"
 
-#define size_map_y 22
-#define size_map_x 26
-
 Pacman::Pacman() {
 	direction = STAY;
 	shape.setFillColor(sf::Color(255, 216, 0));
 	shape.setRadius(15.f);
-	shape.setPosition(740, 640);
     speed = 0.15;
 }
 
@@ -93,6 +89,10 @@ void Pacman::coinIntersects(Map& _map) {
             }
         }
     }
+}
+
+void Pacman::setStartPosition(sf::Vector2f position) {
+    shape.setPosition(position);
 }
 
 sf::FloatRect Pacman::getGlobalBounds() const {

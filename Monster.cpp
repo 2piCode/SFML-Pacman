@@ -1,14 +1,9 @@
 #include "stdafx.h"
 
-#define size_map_y 22
-#define size_map_x 26
-#define frame_eyes_right sf::IntRect(64, 0, 32, 32)
-#define frame_eyes_center sf::IntRect(32, 0, 32, 32)
-#define frame_eyes_left sf::IntRect(0, 0, 32, 32)
-
 Monster::Monster() {
-	direction = STAY;
+	direction = SPAWN;
 	speed = 0.15;
+	shape.setSize(sf::Vector2f(32.f, 32.f));
 }
 
 void Monster::move(Map& _map) {
@@ -80,33 +75,32 @@ bool Monster::checkPacmanIntersects(Pacman& pacman)
 	return false;
 }
 
+void Monster::setStartPosition(sf::Vector2f position) {
+	shape.setPosition(position);
+}
+
 Pink::Pink() {
 	texture.loadFromFile("ghost-pink.png");
 	shape.setTexture(&texture);
-	shape.setSize(sf::Vector2f(31.f, 31.f));
 	shape.setTextureRect(frame_eyes_center); 
-	shape.setPosition(380, 322);
 }
 
-void Pink::release(sf::Clock& clock) {
+void Pink::release(sf::Clock& clock, sf::Vector2f position) {
 	if (clock.getElapsedTime().asSeconds() > 5.00 and clock.getElapsedTime().asSeconds() < 5.50) {
-		shape.setPosition(380, 257);
+		shape.setPosition(position);
 		direction = RIGHT;
 	}
 }
 
-
 Red::Red() {
 	texture.loadFromFile("ghost-red.png");
 	shape.setTexture(&texture);
-	shape.setSize(sf::Vector2f(31.f, 31.f));
 	shape.setTextureRect(frame_eyes_center);
-	shape.setPosition(380, 322);
 }
 
-void Red::release(sf::Clock& clock) {
+void Red::release(sf::Clock& clock, sf::Vector2f position) {
 	if (clock.getElapsedTime().asSeconds() > 8.00 and clock.getElapsedTime().asSeconds() < 8.50) {
-		shape.setPosition(380, 257);
+		shape.setPosition(position);
 		direction = LEFT;
 	}
 }
@@ -114,14 +108,12 @@ void Red::release(sf::Clock& clock) {
 Blue::Blue() {
 	texture.loadFromFile("ghost-blue.png");
 	shape.setTexture(&texture);
-	shape.setSize(sf::Vector2f(31.f, 31.f));
 	shape.setTextureRect(frame_eyes_center);
-	shape.setPosition(380, 322);
 }
 
-void Blue::release(sf::Clock& clock) {
+void Blue::release(sf::Clock& clock, sf::Vector2f position) {
 	if (clock.getElapsedTime().asSeconds() > 11.00 and clock.getElapsedTime().asSeconds() < 11.50) {
-		shape.setPosition(380, 257);
+		shape.setPosition(position);
 		direction = RIGHT;
 	}
 }

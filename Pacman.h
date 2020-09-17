@@ -16,10 +16,9 @@ public:
 	void keyboard();
 	void draw(sf::RenderWindow&) const;
 	void move(Map&);
-
 	bool checkWallIntersects(Map&) const;
 	void coinIntersects(Map&);
-
+	void setStartPosition(sf::Vector2f);
 	sf::FloatRect getGlobalBounds() const;
 };
 

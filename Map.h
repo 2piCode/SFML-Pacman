@@ -13,12 +13,10 @@ class Cell {
 	sf::RectangleShape shape;
 public:
 	Cell();
-
 	void setCell(int, int);
 	void setCategory(CellCategory);
-
-	CellCategory getCategory();
-	sf::RectangleShape getShape();
+	CellCategory getCategory() const;
+	sf::RectangleShape getShape() const;
 };
 
 class Map {
@@ -26,14 +24,11 @@ class Map {
 public:
 	Map();
 	~Map();
-
 	void setMap();
-
 	void draw(sf::RenderWindow&);
-
 	bool winCoin();
-
-	Cell** getPointer();
+	Cell** getPointer() const;
+	sf::Vector2f getStartPosition(char) const;
 };
 
 #endif

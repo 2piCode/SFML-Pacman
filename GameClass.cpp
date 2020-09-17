@@ -3,6 +3,10 @@
 GameClass::GameClass() {
 	state = PLAYING;
 	map.setMap();
+	pacman.setStartPosition(map.getStartPosition('C'));
+	blue.setStartPosition(map.getStartPosition('B'));
+	red.setStartPosition(map.getStartPosition('R'));
+	pink.setStartPosition(map.getStartPosition('P'));
 }
 
 void GameClass::draw(sf::RenderWindow& _window) {
@@ -16,11 +20,11 @@ void GameClass::draw(sf::RenderWindow& _window) {
 bool GameClass::gameplayed(sf::Clock& _clock) {
 	pacman.keyboard();
 	pacman.move(map);
-	blue.release(_clock);
+	blue.release(_clock, map.getStartPosition('@'));
 	blue.move(map);
-	red.release(_clock);
+	red.release(_clock, map.getStartPosition('@'));
 	red.move(map);
-	pink.release(_clock);
+	pink.release(_clock, map.getStartPosition('@'));
 	pink.move(map);
 	if (map.winCoin()) return false;
 	if (loseByMonster()) return false;
