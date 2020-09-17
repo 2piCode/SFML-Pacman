@@ -25,6 +25,7 @@ public:
 	GameClass();
 	void draw(sf::RenderWindow&);
 	bool gameplayed(sf::Clock&);
+	bool loseByMonster();
 };
 
 #endif

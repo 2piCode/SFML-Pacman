@@ -24,7 +24,7 @@ void Pacman::keyboard()
     }
 }
 
-void Pacman::draw(sf::RenderWindow& window) {
+void Pacman::draw(sf::RenderWindow& window) const {
 	window.draw(shape);
 }
 
@@ -70,7 +70,7 @@ void Pacman::move(Map& _map) {
     }
 }
 
-bool Pacman::checkWallIntersects(Map& _map) {
+bool Pacman::checkWallIntersects(Map& _map) const {
     for (size_t i = 0; i < size_map_y; i++) {
         for (size_t j = 0;  j < size_map_x;  j++) {
             if (shape.getGlobalBounds().intersects(_map.getPointer()[i][j].getShape().getGlobalBounds())) {
@@ -93,4 +93,8 @@ void Pacman::coinIntersects(Map& _map) {
             }
         }
     }
+}
+
+sf::FloatRect Pacman::getGlobalBounds() const {
+    return shape.getGlobalBounds();
 }

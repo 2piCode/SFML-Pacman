@@ -14,11 +14,13 @@ public:
 	Pacman();
 
 	void keyboard();
-	void draw(sf::RenderWindow&);
+	void draw(sf::RenderWindow&) const;
 	void move(Map&);
 
-	bool checkWallIntersects(Map&);
+	bool checkWallIntersects(Map&) const;
 	void coinIntersects(Map&);
+
+	sf::FloatRect getGlobalBounds() const;
 };
 
 #endif

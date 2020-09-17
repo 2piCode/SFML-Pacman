@@ -67,6 +67,12 @@ bool Monster::checkWallIntersects(Map& _map) {
 	return false;
 }
 
+bool Monster::checkPacmanIntersects(Pacman& pacman)
+{
+	if (shape.getGlobalBounds().intersects(pacman.getGlobalBounds())) return true;
+	return false;
+}
+
 void Monster::release(sf::Clock& clock) {
 	if (clock.getElapsedTime().asSeconds() > 5.00 and clock.getElapsedTime().asSeconds() < 5.50) {
 		shape.setPosition(380, 257);

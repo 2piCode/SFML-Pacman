@@ -17,6 +17,7 @@ public:
 	void move(Map&);
 	void draw(sf::RenderWindow&);
 	bool checkWallIntersects(Map&);
+	bool checkPacmanIntersects(Pacman&);
 	void release(sf::Clock&);
 };	
 

@@ -23,5 +23,11 @@ bool GameClass::gameplayed(sf::Clock& _clock) {
 	pink.release(_clock);
 	pink.move(map);
 	if (map.winCoin()) return false;
+	if (loseByMonster()) return false;
 	return true;
-}	
+}
+bool GameClass::loseByMonster()
+{
+	if (blue.checkPacmanIntersects(pacman) or red.checkPacmanIntersects(pacman) or pink.checkPacmanIntersects(pacman)) return true;
+	return false;
+}
