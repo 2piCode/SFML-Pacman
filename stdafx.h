@@ -10,7 +10,7 @@
 #define frame_eyes_center sf::IntRect(32, 0, 32, 32)
 #define frame_eyes_left sf::IntRect(0, 0, 32, 32)
 
-
+#include "Unit.h"
 #include <SFML/Graphics.hpp>
 #include <time.h>
 #include "Pacman.h"

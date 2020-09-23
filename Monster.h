@@ -2,16 +2,13 @@
 #ifndef _MONSTER_H_
 #define _MONSTER_H_
 
-enum Direction;
-
 class Map;
+class Unit;
 
-class Monster {
+class Monster : public Unit {
 protected:
-	Direction direction;
 	sf::Texture texture;
 	sf::RectangleShape shape;
-	float speed;
 public:
 	Monster();
 	void move(Map&);

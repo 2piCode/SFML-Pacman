@@ -3,16 +3,12 @@
 #define _PACMAN_H_
 
 class Map;
+class Unit;
 
-enum Direction;
-
-class Pacman {
-	Direction direction;
+class Pacman : public Unit {
 	sf::CircleShape shape;
-	float speed;
 public:
 	Pacman();
-
 	void keyboard();
 	void draw(sf::RenderWindow&) const;
 	void move(Map&);
