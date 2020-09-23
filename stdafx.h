@@ -18,5 +18,6 @@
 #include "Monster.h"
 #include "GameClass.h"
 #include "Direction.h"
+#include "Component.h"
 
 #endif
