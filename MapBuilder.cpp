@@ -13,7 +13,6 @@ void MapBuilder::setProduct() {
 }
 
 void MapBuilder::reset() {
-	if (map) delete map;
 	this->map = new Map;
 }
 

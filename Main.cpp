@@ -5,17 +5,10 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(800, 800), "PACMAN GAME");
 	sf::Clock clock;
 
-	Unit* units = new Unit;
-	units->add(new Pink);
-	units->add(new Red);
-	units->add(new Blue);
+	GameComponentBuilder gameBuilder;
+	gameBuilder.setProduct();
 
-	GameComponent* components = new GameComponent;
-
-	components->add(units);
-	components->add(new Map);
-
-	GameClass game;
+	GameClass game(gameBuilder.getProduct());
 
 	while (window.isOpen())
 	{
@@ -34,9 +27,6 @@ int main()
 
 		window.display();
 	}
-
-	delete units;
-	delete components;
-
+	
 	return 0;
 }

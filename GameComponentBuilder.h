@@ -5,13 +5,15 @@
 class Builder;
 class GameComponent;
 
-class GameClassBuilder : public Builder {
+class GameComponentBuilder : public Builder {
 private:
 	GameComponent* components;
 public:
-	GameClassBuilder();
+	GameComponentBuilder();
+	~GameComponentBuilder();
 	void reset();
 	void setProduct() override;
+	GameComponent* getProduct();
 };
 
 #endif

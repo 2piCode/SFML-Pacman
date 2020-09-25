@@ -9,7 +9,6 @@ PacmanBuilder::~PacmanBuilder() {
 }
 
 void PacmanBuilder::reset() {
-	if (pacman) delete pacman;
 	this->pacman = new Pacman;
 }
 

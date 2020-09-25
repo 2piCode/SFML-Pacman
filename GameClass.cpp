@@ -1,21 +1,23 @@
 #include "stdafx.h"
 
-GameClass::GameClass() {
+GameClass::GameClass(GameComponent* _components) {
 	state = PLAYING;
-	blue.setStartPosition(map.getStartPosition('B'));
-	red.setStartPosition(map.getStartPosition('R'));
+	this->components = _components;
 }
 
 void GameClass::draw(sf::RenderWindow& _window) {
-	map.draw(_window);
+	/*map.draw(_window);
 	pacman.draw(_window);
 	blue.draw(_window);
 	red.draw(_window);
-	pink.draw(_window);
+	pink.draw(_window);*/
+	for (size_t i = 0; i < components->getSize(); i++) {
+		components->draw(_window);
+	}
 }
 
 bool GameClass::gameplayed(sf::Clock& _clock) {
-	pacman.keyboard();
+	/*pacman.keyboard();
 	pacman.move(map);
 	blue.release(_clock, map.getStartPosition('@'));
 	blue.move(map);
@@ -24,10 +26,10 @@ bool GameClass::gameplayed(sf::Clock& _clock) {
 	pink.release(_clock, map.getStartPosition('@'));
 	pink.move(map);
 	if (map.winCoin()) return false;
-	if (loseByMonster()) return false;
+	if (loseByMonster()) return false;*/
 	return true;
 }
 bool GameClass::loseByMonster()  {
-	if (blue.checkPacmanIntersects(pacman) or red.checkPacmanIntersects(pacman) or pink.checkPacmanIntersects(pacman)) return true;
+	//if (blue.checkPacmanIntersects(pacman) or red.checkPacmanIntersects(pacman) or pink.checkPacmanIntersects(pacman)) return true;
 	return false;
 }

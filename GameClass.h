@@ -15,14 +15,10 @@ enum GameState {
 };
 
 class GameClass {
-	Map map;
-	Blue blue;
-	Red red;
-	Pink pink;
-	Pacman pacman;
 	GameState state;
+	GameComponent* components;
 public:
-	GameClass();
+	GameClass(GameComponent*);
 	void draw(sf::RenderWindow&);
 	bool gameplayed(sf::Clock&);
 	bool loseByMonster();

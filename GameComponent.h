@@ -7,6 +7,8 @@ class GameComponent {
 public:
 	virtual void add(GameComponent*);
 	virtual void draw(sf::RenderWindow&) const;
+	int getSize() const;
+	GameComponent* operator[](int k);
 };
 
 #endif

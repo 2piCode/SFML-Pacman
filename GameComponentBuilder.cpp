@@ -1,20 +1,34 @@
 #include "stdafx.h"
 #include "GameComponentBuilder.h"
 
-GameClassBuilder::GameClassBuilder() {
+GameComponentBuilder::GameComponentBuilder() {
 	this->reset();
 }
 
-void GameClassBuilder::reset() {
+GameComponentBuilder::~GameComponentBuilder() {
 	if (components) delete components;
+}
+
+void GameComponentBuilder::reset() {
 	components = new GameComponent;
 }
 
-void GameClassBuilder::setProduct() {
+void GameComponentBuilder::setProduct() {
 	PacmanBuilder pacmanBuilder;
-	pacmanBuilder.setProduct();
-	components->add(pacmanBuilder.getProduct());
 	MapBuilder mapBuilder;
+	MonstersBuilder monsterBuilder;
+
+	pacmanBuilder.setProduct();
 	mapBuilder.setProduct();
+	monsterBuilder.setProduct();
+
+	components->add(pacmanBuilder.getProduct());
 	components->add(mapBuilder.getProduct());
+	components->add(monsterBuilder.getProduct());
+}
+
+GameComponent* GameComponentBuilder::getProduct() {
+	GameComponent* result = components;
+	this->reset();
+	return result;
 }
