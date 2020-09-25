@@ -10,14 +10,13 @@
 #define frame_eyes_center sf::IntRect(32, 0, 32, 32)
 #define frame_eyes_left sf::IntRect(0, 0, 32, 32)
 
-#include "Unit.h"
 #include <SFML/Graphics.hpp>
 #include <time.h>
+#include "Unit.h"
 #include "Pacman.h"
 #include "Map.h"
 #include "Monster.h"
 #include "GameClass.h"
 #include "Direction.h"
-#include "Component.h"
 
 #endif

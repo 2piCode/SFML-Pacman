@@ -4,10 +4,15 @@
 
 enum Direction;
 
-class Unit {
+class Map;
+
+class Unit{
 protected:
 	Direction direction;
 	float speed;
+public:
+	virtual void draw(sf::RenderWindow&) const = 0;
+	virtual void move(Map&) = 0;
 };
 
 #endif

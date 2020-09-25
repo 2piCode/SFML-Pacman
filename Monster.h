@@ -11,8 +11,8 @@ protected:
 	sf::RectangleShape shape;
 public:
 	Monster();
-	void move(Map&);
-	void draw(sf::RenderWindow&);
+	void move(Map&) override;
+	void draw(sf::RenderWindow&) const override;
 	bool checkWallIntersects(Map&);
 	bool checkPacmanIntersects(Pacman&);
 	void setStartPosition(sf::Vector2f);
@@ -22,19 +22,19 @@ public:
 class Pink : public Monster {
 public:
 	Pink();
-	virtual void release(sf::Clock&, sf::Vector2f);
+	void release(sf::Clock&, sf::Vector2f) override;
 };
 
 class Red : public Monster {
 public:
 	Red();
-	virtual void release(sf::Clock&, sf::Vector2f);
+	void release(sf::Clock&, sf::Vector2f) override;
 };
 
 class Blue : public Monster {
 public:
 	Blue();
-	virtual void release(sf::Clock&, sf::Vector2f);
+	void release(sf::Clock&, sf::Vector2f) override;
 };
 
 #endif

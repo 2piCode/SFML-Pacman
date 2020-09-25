@@ -54,7 +54,7 @@ void Monster::move(Map& _map) {
 		}
 }
 
-void Monster::draw(sf::RenderWindow& window) {
+void Monster::draw(sf::RenderWindow& window) const {
 	window.draw(shape);
 }
 

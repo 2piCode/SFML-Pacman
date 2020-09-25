@@ -10,8 +10,8 @@ class Pacman : public Unit {
 public:
 	Pacman();
 	void keyboard();
-	void draw(sf::RenderWindow&) const;
-	void move(Map&);
+	void draw(sf::RenderWindow&) const override;
+	void move(Map&) override;
 	bool checkWallIntersects(Map&) const;
 	void coinIntersects(Map&);
 	void setStartPosition(sf::Vector2f);
