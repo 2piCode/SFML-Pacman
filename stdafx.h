@@ -13,6 +13,7 @@
 #include <SFML/Graphics.hpp>
 #include <time.h>
 #include <vector>
+#include <iostream>
 #include "GameComponent.h"
 #include "Unit.h"
 #include "Pacman.h"

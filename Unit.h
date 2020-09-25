@@ -6,12 +6,16 @@ enum Direction;
 
 class Map;
 
+class GameComponent;
+
 class Unit : public GameComponent{
+	std::vector<GameComponent*> units;
 protected:
 	Direction direction;
 	float speed;
 public:
-	virtual void move(Map&) = 0;
+	virtual void add(GameComponent*);
+	virtual void move(Map&);
 };
 
 #endif
