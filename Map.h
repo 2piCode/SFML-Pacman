@@ -2,6 +2,8 @@
 #ifndef _MAP_H_
 #define _MAP_H_
 
+class GameComponent;
+
 enum CellCategory {
 	COIN,
 	EMPTY,
@@ -19,13 +21,13 @@ public:
 	sf::RectangleShape getShape() const;
 };
 
-class Map {
+class Map : public GameComponent {
 	Cell** cells;
 public:
 	Map();
 	~Map();
 	void setMap();
-	void draw(sf::RenderWindow&);
+	void draw(sf::RenderWindow&) const override;
 	bool winCoin();
 	Cell** getPointer() const;
 	sf::Vector2f getStartPosition(char) const;

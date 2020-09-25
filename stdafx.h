@@ -12,6 +12,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <time.h>
+#include <vector>
+#include "GameComponent.h"
 #include "Unit.h"
 #include "Pacman.h"
 #include "Map.h"

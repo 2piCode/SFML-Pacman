@@ -93,7 +93,7 @@ void Map::setMap() {
 	}
 }
 
-void Map::draw(sf::RenderWindow& window) {
+void Map::draw(sf::RenderWindow& window) const {
 	for (size_t i = 0; i < size_map_y; i++) {
 		for (size_t j = 0; j < size_map_x; j++) {
 			window.draw(cells[i][j].getShape());

@@ -6,12 +6,11 @@ enum Direction;
 
 class Map;
 
-class Unit{
+class Unit : public GameComponent{
 protected:
 	Direction direction;
 	float speed;
 public:
-	virtual void draw(sf::RenderWindow&) const = 0;
 	virtual void move(Map&) = 0;
 };
 
