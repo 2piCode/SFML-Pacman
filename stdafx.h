@@ -15,6 +15,11 @@
 #include <vector>
 #include <iostream>
 #include "GameComponent.h"
+#include "Builder.h"
+#include "MapBuilder.h"
+#include "PacmanBuilder.h"
+#include "MonstersBuilder.h"
+#include "GameComponentBuilder.h"
 #include "Unit.h"
 #include "Pacman.h"
 #include "Map.h"

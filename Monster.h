@@ -4,19 +4,23 @@
 
 class Map;
 class Unit;
+class GameClass;
 
 class Monster : public Unit {
+private:
+	std::vector<GameComponent*> monsters;
 protected:
 	sf::Texture texture;
 	sf::RectangleShape shape;
 public:
 	Monster();
+	virtual void add(GameComponent*);
 	void move(Map&) override;
 	void draw(sf::RenderWindow&) const override;
 	bool checkWallIntersects(Map&);
 	bool checkPacmanIntersects(Pacman&);
 	void setStartPosition(sf::Vector2f);
-	virtual void release(sf::Clock&, sf::Vector2f) = 0;
+	virtual void release(sf::Clock&, sf::Vector2f) {};
 };	
 
 class Pink : public Monster {

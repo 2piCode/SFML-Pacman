@@ -2,11 +2,8 @@
 
 GameClass::GameClass() {
 	state = PLAYING;
-	map.setMap();
-	pacman.setStartPosition(map.getStartPosition('C'));
 	blue.setStartPosition(map.getStartPosition('B'));
 	red.setStartPosition(map.getStartPosition('R'));
-	pink.setStartPosition(map.getStartPosition('P'));
 }
 
 void GameClass::draw(sf::RenderWindow& _window) {

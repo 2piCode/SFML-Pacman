@@ -6,6 +6,10 @@ Monster::Monster() {
 	shape.setSize(sf::Vector2f(31.f, 31.f));
 }
 
+void Monster::add(GameComponent* monster) {
+	monsters.push_back(monster);
+}
+
 void Monster::move(Map& _map) {
 	srand(time(NULL));
 	switch (direction) {
